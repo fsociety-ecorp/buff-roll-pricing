@@ -1,8 +1,13 @@
 import json
 
-# Open the transformed JSON file
-with open('transformed.json', 'r', encoding='utf-8') as f:
-    transformed_data = json.load(f)
+# Open the original JSON file
+with open('buff-all-items.json', 'r', encoding='utf-8') as f:
+    original_data = json.load(f)
+
+# Transform the data
+transformed_data = {}
+for key, value in original_data.items():
+    transformed_data[key] = {"id": value}
 
 # Open the file with rates
 with open('62.txt', 'r', encoding='utf-8') as f:
